@@ -25,6 +25,10 @@ int main() {
             "[\\!\\\"\\#\\$\\%\\&\\'\\(\\)\\*\\+\\,\\-\\.\\/\\:\\;\\<\\>\\=\\?\\@\\[\\]\\{\\}\\\\\\\\\\^\\_\\`\\~]+");
     regex matchesNumber("(\\-*)[0-9]+\\.?\\,?[0-9]+");
 
+    regex matchesPhoneNumber0("\\+\\d{12}$");
+    regex matchesPhoneNumber1("(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$");
+    regex matchesPhoneNumber2("\\+(\\d{3}[\\- ]?)\\(\\d{2}\\) \\d{7}$");
+
     while (getline(myfile, line)) {
         if (regex_match(line, matchesSurname)) {
             cout << line << " - surname class" << endl;
@@ -34,6 +38,9 @@ int main() {
             cout << line << " - syntax class" << endl;
         } else if (regex_match(line, matchesNumber)) {
             cout << line << " - number class" << endl;
+        } else if (regex_match(line, matchesPhoneNumber0) || regex_match(line, matchesPhoneNumber1) ||
+                   regex_match(line, matchesPhoneNumber2)) {
+            cout << line << " - phone number class" << endl;
         } else {
             cout << line << " - doesn't belong to any class" << endl;
         }
