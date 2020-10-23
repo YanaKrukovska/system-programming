@@ -25,4 +25,30 @@ public class AnalysisResult {
     public void setLexicalClass(LexicalClass lexicalClass) {
         this.lexicalClass = lexicalClass;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+
+        AnalysisResult other = (AnalysisResult) obj;
+        return this.getLexeme().equals(other.getLexeme());
+    }
+
+    @Override
+    public int hashCode() {
+        return lexeme.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return lexeme + " - " + lexicalClass.getClassName();
+    }
+
+
 }
