@@ -23,6 +23,9 @@ public class LexicalAnalysisTester {
             e.printStackTrace();
         }
 
+        System.out.println("ORIGINAL:");
+        printResults(results);
+
         results = removeDuplicates(results);
 
         System.out.println("ALPHABETICALLY:");
@@ -30,11 +33,11 @@ public class LexicalAnalysisTester {
 
         System.out.println("BY CLASS:");
         printResults(sortByClass(results));
-
     }
 
     private static List<AnalysisResult> removeDuplicates(List<AnalysisResult> results) {
-        return results.stream().distinct().collect(Collectors.toList());
+        Set<AnalysisResult> res = new TreeSet<>(results);
+        return new LinkedList<>(res);
     }
 
     private static List<AnalysisResult> sortInAlphabeticalOrder(List<AnalysisResult> results) {
@@ -51,6 +54,5 @@ public class LexicalAnalysisTester {
         results.forEach(System.out::println);
         System.out.println("");
     }
-
 
 }

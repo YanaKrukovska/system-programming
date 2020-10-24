@@ -1,6 +1,6 @@
 package ua.edu.ukma.ykrukovska.LexicalAnalysis;
 
-public class AnalysisResult {
+public class AnalysisResult implements Comparable<AnalysisResult> {
 
     private String lexeme;
     private LexicalClass lexicalClass;
@@ -27,28 +27,12 @@ public class AnalysisResult {
     }
 
     @Override
-    public boolean equals(Object obj) {
-
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-
-        AnalysisResult other = (AnalysisResult) obj;
-        return this.getLexeme().equals(other.getLexeme());
-    }
-
-    @Override
-    public int hashCode() {
-        return lexeme.hashCode();
-    }
-
-    @Override
     public String toString() {
         return lexeme + " - " + lexicalClass.getClassName();
     }
 
-
+    @Override
+    public int compareTo(AnalysisResult other) {
+        return this.getLexeme().equals(other.getLexeme()) ? this.getLexicalClass().getClassName().compareTo(other.getLexicalClass().getClassName()) : this.getLexeme().compareTo(other.getLexeme());
+    }
 }
