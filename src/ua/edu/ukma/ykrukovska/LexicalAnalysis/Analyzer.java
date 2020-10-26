@@ -1,5 +1,7 @@
 package ua.edu.ukma.ykrukovska.LexicalAnalysis;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -34,7 +36,7 @@ public class Analyzer {
         while (matcher.find()) {
             String match = tempLine.substring(matcher.start(), matcher.end());
             results.add(new AnalysisResult(match, lexicalClass));
-            line = line.replace(match, "");
+            line = StringUtils.replaceOnce(line, match, "");
         }
         return line;
     }

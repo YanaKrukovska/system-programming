@@ -3,7 +3,6 @@ package ua.edu.ukma.ykrukovska.LexicalAnalysis;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class LexicalAnalysisTester {
 
