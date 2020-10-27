@@ -12,7 +12,7 @@ public class LexicalAnalysisTester {
 
         Analyzer analyzer = new Analyzer(Arrays.asList(LexicalClass.SURNAME, LexicalClass.PHONE_NUMBER, LexicalClass.MAIL, LexicalClass.NUMBER, LexicalClass.SYNTAX, LexicalClass.REJECT));
         try {
-            File file = new File("C:\\IdeaProjects\\system-programming\\src\\ua\\edu\\ukma\\ykrukovska\\LexicalAnalysis\\Source.txt");
+            File file = new File("C:\\IdeaProjects\\system-programming\\src\\main\\java\\ua\\edu\\ukma\\ykrukovska\\LexicalAnalysis\\Source.txt");
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 results.addAll(analyzer.analyzeLine(scanner.nextLine()));
