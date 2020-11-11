@@ -132,6 +132,16 @@ class AnalyzerTest {
         Assertions.assertEquals(4, reject.size());
     }
 
+    @Test
+    public void findThreeDate() {
+        LexicalClass lexicalClass = LexicalClass.DATE;
+        Analyzer analyzer = new Analyzer(Collections.singletonList(lexicalClass));
+        List<AnalysisResult> analysisResults = analyzer.analyzeLine("01-01-1970 or 05/09/2001 or 11.11.2020");
+        List<AnalysisResult> res = findResult(analysisResults, lexicalClass);
+
+        Assertions.assertEquals(3, res.size());
+    }
+
     private List<AnalysisResult> findResult(List<AnalysisResult> analysisResults, LexicalClass lexicalClass) {
         List<AnalysisResult> res = new LinkedList<>();
         for (AnalysisResult analysisResult : analysisResults) {

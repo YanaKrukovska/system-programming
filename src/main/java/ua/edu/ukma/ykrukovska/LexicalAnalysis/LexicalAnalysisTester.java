@@ -10,7 +10,7 @@ public class LexicalAnalysisTester {
         List<AnalysisResult> results = new LinkedList<>();
 
 
-        Analyzer analyzer = new Analyzer(Arrays.asList(LexicalClass.SURNAME, LexicalClass.PHONE_NUMBER, LexicalClass.MAIL, LexicalClass.NUMBER, LexicalClass.SYNTAX, LexicalClass.REJECT));
+        Analyzer analyzer = new Analyzer(Arrays.asList(LexicalClass.SURNAME, LexicalClass.PHONE_NUMBER, LexicalClass.MAIL, LexicalClass.DATE,  LexicalClass.NUMBER, LexicalClass.SYNTAX, LexicalClass.REJECT));
         try {
             File file = new File("C:\\IdeaProjects\\system-programming\\src\\main\\java\\ua\\edu\\ukma\\ykrukovska\\LexicalAnalysis\\Source.txt");
             Scanner scanner = new Scanner(file);
