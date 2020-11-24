@@ -1,14 +1,10 @@
 package ua.edu.ukma.ykrukovska.PolishReverseNotation;
 
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 public class PRNTester {
 
     public static void main(String[] args) {
-        Queue<String> e = new LinkedList<>();
-
         Splitter splitter = new Splitter();
         Converter converter = new Converter();
         PRNCalculator prnCalculator = new PRNCalculator();
