@@ -28,7 +28,7 @@ class SplitterTest {
     }
 
     @Test
-    public void splitwithFunctions() {
+    public void splitWithFunctions() {
         Splitter splitter = new Splitter();
         List<String> res = splitter.splitLine("sin (a + b)");
         assertEquals(6, res.size());

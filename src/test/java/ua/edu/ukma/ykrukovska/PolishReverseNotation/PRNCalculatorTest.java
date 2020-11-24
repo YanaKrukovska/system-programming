@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.Queue;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,35 +13,35 @@ class PRNCalculatorTest {
     @Test
     public void countSum() {
         PRNCalculator calculator = new PRNCalculator();
-        Queue<String> expression = new LinkedList<>(Arrays.asList("1", "9", "10", "+", "+"));
+        List<String> expression = new LinkedList<>(Arrays.asList("1", "9", "10", "+", "+"));
         assertEquals(20, calculator.calculate(expression));
     }
 
     @Test
     public void countSubtraction() {
         PRNCalculator calculator = new PRNCalculator();
-        Queue<String> expression = new LinkedList<>(Arrays.asList("20", "19", "-", "1", "-"));
+        List<String> expression = new LinkedList<>(Arrays.asList("20", "19", "-", "1", "-"));
         assertEquals(0, calculator.calculate(expression));
     }
 
     @Test
     public void countMultiplication() {
         PRNCalculator calculator = new PRNCalculator();
-        Queue<String> expression = new LinkedList<>(Arrays.asList("5", "2", "3", "*", "*"));
+        List<String> expression = new LinkedList<>(Arrays.asList("5", "2", "3", "*", "*"));
         assertEquals(30, calculator.calculate(expression));
     }
 
     @Test
     public void countMultiplicationWithZero() {
         PRNCalculator calculator = new PRNCalculator();
-        Queue<String> expression = new LinkedList<>(Arrays.asList("0", "2", "3", "*", "*"));
+        List<String> expression = new LinkedList<>(Arrays.asList("0", "2", "3", "*", "*"));
         assertEquals(0, calculator.calculate(expression));
     }
 
     @Test
     public void countDivision() {
         PRNCalculator calculator = new PRNCalculator();
-        Queue<String> expression = new LinkedList<>(Arrays.asList("10", "5", "/", "1", "/"));
+        List<String> expression = new LinkedList<>(Arrays.asList("10", "5", "/", "1", "/"));
         assertEquals(2, calculator.calculate(expression));
     }
 
@@ -64,7 +64,7 @@ class PRNCalculatorTest {
     @Test
     public void countPow() {
         PRNCalculator calculator = new PRNCalculator();
-        Queue<String> expression = new LinkedList<>(Arrays.asList("2", "4", "^"));
+        List<String> expression = new LinkedList<>(Arrays.asList("2", "4", "^"));
         assertEquals(16, calculator.calculate(expression));
     }
 

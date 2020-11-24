@@ -6,8 +6,8 @@ public class Converter {
 
     public static final Map<String, Integer> precedence;
 
-    public Queue<String> convertInfixToRPN(List<String> infixNotation) {
-        Queue<String> result = new LinkedList<>();
+    public List<String> convertInfixToRPN(List<String> infixNotation) {
+        List<String> result = new LinkedList<>();
         Stack<String> stack = new Stack<>();
 
         for (String token : infixNotation) {
@@ -39,6 +39,15 @@ public class Converter {
         }
 
         return result;
+    }
+
+    public String convertToString(List<String> elements) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String element : elements) {
+            stringBuilder.append(element).append(" ");
+        }
+
+        return stringBuilder.toString();
     }
 
     static {

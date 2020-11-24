@@ -1,11 +1,11 @@
 package ua.edu.ukma.ykrukovska.PolishReverseNotation;
 
-import java.util.Queue;
+import java.util.List;
 import java.util.Stack;
 
 public class PRNCalculator {
 
-    public double calculate(Queue<String> expressions) {
+    public double calculate(List<String> expressions) {
         Stack<Double> stack = new Stack();
         double operand1;
         double operand2;
