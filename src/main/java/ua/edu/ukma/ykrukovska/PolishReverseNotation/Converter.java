@@ -10,7 +10,9 @@ public class Converter {
         List<String> result = new LinkedList<>();
         Stack<String> stack = new Stack<>();
 
+        int countV = 0;
         for (String token : infixNotation) {
+
             if ("(".equals(token)) {
                 stack.push(token);
                 continue;
@@ -20,6 +22,30 @@ public class Converter {
                 while (!"(".equals(stack.peek())) {
                     result.add(stack.pop());
                 }
+                stack.pop();
+                continue;
+            }
+
+            if ("[".equals(token)) {
+                countV = 2;
+                stack.push(token);
+                continue;
+            }
+
+            if (",".equals(token)) {
+                countV++;
+                while (!"[".equals(stack.peek())) {
+                    result.add(stack.pop());
+                }
+                continue;
+            }
+
+            if ("]".equals(token)) {
+                while (!"[".equals(stack.peek())) {
+                    result.add(stack.pop());
+                }
+                result.add(Integer.toString(countV));
+                result.add(token);
                 stack.pop();
                 continue;
             }
@@ -61,9 +87,17 @@ public class Converter {
         temp.put("*", 3);
         temp.put("+", 2);
         temp.put("-", 2);
+        temp.put("=", 1);
         temp.put(")", 1);
+        temp.put(",", 1);
+        temp.put("]", 1);
         temp.put("(", 0);
+        temp.put("[", 0);
         precedence = Collections.unmodifiableMap(temp);
+    }
+
+    public boolean isLetter(String token) {
+        return token.matches("[a-zA-Z]+");
     }
 
 }

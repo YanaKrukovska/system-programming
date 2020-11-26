@@ -48,17 +48,15 @@ class PRNCalculatorTest {
     @Test
     public void countSin() {
         Converter converter = new Converter();
-        Splitter splitter = new Splitter();
         PRNCalculator calculator = new PRNCalculator();
-        assertEquals(0, calculator.calculate(converter.convertInfixToRPN(splitter.splitLine("sin (15 - 15)"))));
+        assertEquals(0, calculator.calculate(converter.convertInfixToRPN(Splitter.splitLine("sin (15 - 15)"))));
     }
 
     @Test
     public void countCos() {
         Converter converter = new Converter();
-        Splitter splitter = new Splitter();
         PRNCalculator calculator = new PRNCalculator();
-        assertEquals(0.5, calculator.calculate(converter.convertInfixToRPN(splitter.splitLine("cos 60"))), 0.000001);
+        assertEquals(0.5, calculator.calculate(converter.convertInfixToRPN(Splitter.splitLine("cos 60"))), 0.000001);
     }
 
     @Test

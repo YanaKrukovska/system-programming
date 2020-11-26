@@ -7,8 +7,8 @@ import java.util.regex.Pattern;
 
 public class Splitter {
 
-    public List<String> splitLine(String line) {
-        Pattern pattern = Pattern.compile("-?[0-9.]+|[A-Za-z]+|[-+*/()^]");
+    public static List<String> splitLine(String line) {
+        Pattern pattern = Pattern.compile("-?[0-9.]+|[A-Za-z]+|[-+*/()^,\\[\\]=]");
         Matcher match = pattern.matcher(line);
         List<String> result = new ArrayList<>();
         while (match.find()) {
