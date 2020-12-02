@@ -8,6 +8,12 @@ public class PRNTester {
         Converter converter = new Converter();
         PRNCalculator prnCalculator = new PRNCalculator();
 
+        String expressionString = "2 + f(i + 3, k, 7)";
+        List<String> expression = Splitter.splitLine(expressionString);
+        List<String> res = converter.convertInfixToRPN(expression);
+        System.out.println("Original: " + expressionString + ", converted: " + converter.convertToString(res));
+        System.out.println();
+
         String expression1String = "50/(2*5) + sin (45 + 45)";
         List<String> expression1 = Splitter.splitLine(expression1String);
         List<String> res1 = converter.convertInfixToRPN(expression1);

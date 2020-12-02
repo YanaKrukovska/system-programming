@@ -11,7 +11,13 @@ public class Converter {
         Stack<String> stack = new Stack<>();
 
         int countV = 0;
+        boolean isFunction = false;
         for (String token : infixNotation) {
+
+            if ("f".equals(token) || "g".equals(token)) {
+                countV = 2;
+                isFunction = true;
+            }
 
             if ("(".equals(token)) {
                 stack.push(token);
@@ -21,6 +27,10 @@ public class Converter {
             if (")".equals(token)) {
                 while (!"(".equals(stack.peek())) {
                     result.add(stack.pop());
+                }
+                if (isFunction){
+                    result.add(Integer.toString(countV));
+                    result.add("Fn");
                 }
                 stack.pop();
                 continue;
@@ -34,8 +44,14 @@ public class Converter {
 
             if (",".equals(token)) {
                 countV++;
-                while (!"[".equals(stack.peek())) {
-                    result.add(stack.pop());
+                if (!isFunction) {
+                    while (!"[".equals(stack.peek())) {
+                        result.add(stack.pop());
+                    }
+                } else {
+                    while (!"(".equals(stack.peek())) {
+                        result.add(stack.pop());
+                    }
                 }
                 continue;
             }
